@@ -22,13 +22,10 @@ quotes1[7] = "Never underestimate the clarity that comes with a calm mind.";
 quotes1[8] = "See if you can catch yourself complaining. Let go of resistance, then act once you have accepted the situation.";
 quotes1[9] = "Become aware of how fear and worry tend to distort reality and make things worse than they seem.";
 quotes1[10] = "Whatever you plan to do in the next five minutes, do it fully. Put away all distractions, and live every moment of it with all of your presence.";
-
-
-
-
+quotes1[11] = "Use the awareness of your body as an anchor to staying present in the moment throughout the day.";
 
 function post_tweet() { 
-    let r = Math.floor(Math.random()*10);
+    let r = Math.floor(Math.random()*11);
 
     let tweet_to_post = {
         status: quotes1[r]
@@ -47,7 +44,7 @@ function post_tweet() {
 }
 
 post_tweet();
-setInterval(post_tweet, 1000*60*120); //1000*60*120 every two hours
+setInterval(post_tweet, 1000*60*60); //1000*60*120 every two hours
 
 
 
