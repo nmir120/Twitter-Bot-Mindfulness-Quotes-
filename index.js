@@ -15,16 +15,16 @@ let quotes1 = [];
 function populate_quote_array() {
     quotes1[0] = "Are you at ease, at this moment?";
     quotes1[1] = "Ask yourself: what's going on inside me, right now?";
-    quotes1[2] = "Pause for a few moments; take 5 deep breaths, be with each one.";
+    quotes1[2] = "Pause for a few moments; take 5 deep breaths, be with each inhale and exhale.";
     quotes1[3] = "How do you feel right now? Observe your emotions without judging them.";
     quotes1[4] = '"Almost everything will work again if you unplug it for a few minutes, including you." - Anne Lamott';
     quotes1[5] = "As within, so without.";
-    quotes1[6] = "The clear sky is always there if you seek it.";
+    quotes1[6] = "No matter the weather, the clear sky is always there if you seek it.";
     quotes1[7] = "Never underestimate the clarity that comes with a calm mind.";
-    quotes1[8] = "See if you can catch yourself complaining. Let go of resistance, then act once you have accepted the situation.";
+    quotes1[8] = "See if you can catch yourself complaining in your head. Let go of resistance, then act once you have accepted the situation.";
     quotes1[9] = "Become aware of how fear and worry tend to distort reality and make things worse than they seem.";
     quotes1[10] = "Whatever you plan to do in the next five minutes, do it fully. Put away all distractions, and live every moment of it with all of your presence.";
-    quotes1[11] = "Use the awareness of your body as an anchor to staying present in the moment throughout the day.";
+    quotes1[11] = "Use the awareness of your body as an anchor to stay present in the moment.";
 }
 
 
