@@ -13,18 +13,24 @@ let T = new Twit({
 let quotes1 = [];
 
 function populate_quote_array() {
-    quotes1[0] = "Are you at ease, at this moment?";
-    quotes1[1] = "Ask yourself: what's going on inside me, right now?";
-    quotes1[2] = "Pause for a few moments; take 5 deep breaths, be with each inhale and exhale.";
-    quotes1[3] = "How do you feel right now? Observe your emotions without judging them.";
-    quotes1[4] = '"Almost everything will work again if you unplug it for a few minutes, including you." - Anne Lamott';
-    quotes1[5] = "As within, so without.";
-    quotes1[6] = "No matter the weather, the clear sky is always there if you seek it.";
-    quotes1[7] = "Never underestimate the clarity that comes with a calm mind.";
-    quotes1[8] = "See if you can catch yourself complaining in your head. Let go of resistance, then act once you have accepted the situation.";
-    quotes1[9] = "Become aware of how fear and worry tend to distort reality and make things worse than they seem.";
-    quotes1[10] = "Whatever you plan to do in the next five minutes, do it fully. Put away all distractions, and live every moment of it with all of your presence.";
-    quotes1[11] = "Use the awareness of your body as an anchor to stay present in the moment.";
+    quotes1.push("Are you at ease, at this moment?");
+    quotes1.push("Ask yourself: what's going on inside me, right now?");
+    quotes1.push("Pause for a few moments; take 5 deep breaths, be with each inhale and exhale.");
+    quotes1.push("How do you feel right now? Observe your emotions without judging them.");
+    quotes1.push('"Almost everything will work again if you unplug it for a few minutes, including you." - Anne Lamott');
+    quotes1.push("As within, so without.");
+    quotes1.push("No matter the weather, the clear sky is always there if you seek it.");
+    quotes1.push("Never underestimate the clarity that comes with a calm mind.");
+    quotes1.push("See if you can catch yourself complaining in your head. Let go of resistance, then act once you have accepted the situation.");
+    quotes1.push("Become aware of how fear and worry tend to distort reality and make things worse than they seem.");
+    quotes1.push("Whatever you plan to do in the next five minutes, do it fully. Put away all distractions, and live every moment of it with all of your presence.");
+    quotes1.push("Use the awareness of your body as an anchor to stay present in the moment.");
+    quotes1.push('“The feeling that any task is a nuisance will soon disappear if it is done in mindfulness.” – Thích Nhất Hạnh');
+    quotes1.push('“Enlightenment is nothing more than the complete absence of resistance to what is. End of story.” ― Adyashanti');
+    quotes1.push('“When we believe what we think, when we take our thinking to be reality, we will suffer.” ― Adyashanti');
+    quotes1.push('"Realize deeply that the present moment is all you ever have." - Eckhart Tolle');
+    quotes1.push('"What a liberation to realize that the “voice in my head” is not who I am. Who am I then? The one who sees that." - Eckhart Tolle');
+    quotes1.push('“You are the sky. Everything else is just the weather.” – Pema Chödrön');
 }
 
 
@@ -35,11 +41,12 @@ function post_tweet() {
     }
 
     let r = Math.floor(Math.random()*(quotes1.length));
-    quotes1.splice(r, 1); //remove quote so it's not repeated
-
+    
     let tweet_to_post = {
         status: quotes1[r]
     }
+    // tester
+    // console.log(quotes1[r]);
 
     T.post('statuses/update', tweet_to_post, function(err, data, response) {
         if(!err) {
@@ -49,12 +56,27 @@ function post_tweet() {
         }
         //console.log(data);
     });
+
+    quotes1.splice(r, 1); //remove quote so it's not repeated
 }
 
 populate_quote_array();
 post_tweet();
 setInterval(post_tweet, 1000*60*60); //tweet every 60 minutes
 //1000*60*120 every two hours
+
+// tester... comment out t.post as well
+// populate_quote_array();
+// console.log("\nfirst go...\n");
+// let numquotes = quotes1.length;
+// for(let i = 0; i < numquotes; i++) {
+//     post_tweet();
+// }
+// console.log("\nsecond go...\n");
+// for(let i = 0; i < numquotes; i++) {
+//     post_tweet();
+// }
+
 
 
 
