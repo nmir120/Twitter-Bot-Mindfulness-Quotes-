@@ -37,7 +37,7 @@ function populate_quote_array() {
     quotes1.push('“Mindless fear is greater than mindful fear.” ― Idowu Koyenikan');
     quotes1.push('"The only way to make sense out of change is to plunge into it, move with it, and join the dance." - Alan Watts');
     quotes1.push('"This is the real secret of life — to be completely engaged with what you are doing in the here and now. And instead of calling it work, realize it is play." - Alan Watts');
-    quotes1.push('“Half the time you think your thinking you’re actually listening” ― Terence McKenna');
+    quotes1.push("“Half the time you think you’re thinking, you’re actually listening” ― Terence McKenna");
 }
 
 
