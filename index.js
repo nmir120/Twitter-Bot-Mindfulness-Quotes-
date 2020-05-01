@@ -31,6 +31,13 @@ function populate_quote_array() {
     quotes1.push('"Realize deeply that the present moment is all you ever have." - Eckhart Tolle');
     quotes1.push('"What a liberation to realize that the “voice in my head” is not who I am. Who am I then? The one who sees that." - Eckhart Tolle');
     quotes1.push('“You are the sky. Everything else is just the weather.” – Pema Chödrön');
+    quotes1.push("Emotion is simply your body's reaction to your mind.");
+    quotes1.push('"The present moment is filled with joy and happiness. If you are attentive, you will see it." - Thích Nhất Hạnh');
+    quotes1.push("The harder you struggle to get rid of the pain, the greater the pain.");
+    quotes1.push('“Mindless fear is greater than mindful fear.” ― Idowu Koyenikan');
+    quotes1.push('"The only way to make sense out of change is to plunge into it, move with it, and join the dance." - Alan Watts');
+    quotes1.push('"This is the real secret of life — to be completely engaged with what you are doing in the here and now. And instead of calling it work, realize it is play." - Alan Watts');
+    quotes1.push('“Half the time you think your thinking you’re actually listening” ― Terence McKenna');
 }
 
 
@@ -43,7 +50,7 @@ function post_tweet() {
     let r = Math.floor(Math.random()*(quotes1.length));
     
     let tweet_to_post = {
-        status: quotes1[r]
+        status: quotes1[r] + ' #mindfulness #bot'
     }
     // tester
     // console.log(quotes1[r]);
