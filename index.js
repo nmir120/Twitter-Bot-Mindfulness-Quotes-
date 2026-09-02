@@ -1,12 +1,20 @@
 console.log('Starting Mindfulness Bot.');
 
-let Twit = require('twit');
+let { TwitterApi } = require('twitter-api-v2');
 
-let T = new Twit({
-    consumer_key: 'hVDmQKef37u2ai7gO2vutqoyr',
-    consumer_secret: 'NMF6EA23ruEqWFkwu17X6n98mkXiQ3wU31d8A0Y4hmohzCWl6x',
-    access_token: '1254855761580220416-l0AsltiJRYdhEkbhUlWENn7LJQ0LLA',
-    access_token_secret: 'whnpFrt7nUn8KIzWYCF9AhJhHkbBkCImVPXGz951JbEOR'
+//credentials come from the environment, never from this file
+let required_vars = ['TWITTER_CONSUMER_KEY', 'TWITTER_CONSUMER_SECRET', 'TWITTER_ACCESS_TOKEN', 'TWITTER_ACCESS_TOKEN_SECRET'];
+let missing = required_vars.filter(v => !process.env[v]);
+if(missing.length > 0) {
+    console.error('Missing environment variables: ' + missing.join(', '));
+    process.exit(1);
+}
+
+let T = new TwitterApi({
+    appKey: process.env.TWITTER_CONSUMER_KEY,
+    appSecret: process.env.TWITTER_CONSUMER_SECRET,
+    accessToken: process.env.TWITTER_ACCESS_TOKEN,
+    accessSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
 //put in a separate file?
@@ -49,19 +57,15 @@ function post_tweet() {
 
     let r = Math.floor(Math.random()*(quotes1.length));
     
-    let tweet_to_post = {
-        status: quotes1[r] + ' #mindfulness #bot'
-    }
+    let tweet_to_post = quotes1[r] + ' #mindfulness #bot';
     // tester
     // console.log(quotes1[r]);
 
-    T.post('statuses/update', tweet_to_post, function(err, data, response) {
-        if(!err) {
-            console.log("Mindfulness bot successfully tweeted.");
-        } else {
-            console.log("Mindfulness bot failed to tweet.");
-        }
-        //console.log(data);
+    T.v2.tweet(tweet_to_post).then(function() {
+        console.log("Mindfulness bot successfully tweeted.");
+    }).catch(function(err) {
+        console.log("Mindfulness bot failed to tweet.");
+        //console.log(err);
     });
 
     quotes1.splice(r, 1); //remove quote so it's not repeated
